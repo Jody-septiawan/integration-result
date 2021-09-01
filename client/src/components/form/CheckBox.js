@@ -6,7 +6,7 @@ export default function CheckBox(props) {
   const [isChecked, setIsChecked] = useState();
 
   const getIsChecked = () => {
-    if (categoryId?.length != 0) {
+    if (categoryId?.length !== 0) {
       categoryId?.every((item) => {
         if (item == value) {
           setIsChecked(true);
