@@ -36,7 +36,7 @@ export default function CategoryAdmin() {
       handleClose();
       console.log(idDelete);
 
-      setCategory(category.filter((item) => item.id != idDelete));
+      setCategory(category.filter((item) => item.id !== idDelete));
 
       setConfirmDelete(null);
     }
@@ -56,16 +56,12 @@ export default function CategoryAdmin() {
             <div className="text-header-category mb-4">List Category</div>
           </Col>
           <Col className="text-end">
-            <Button
-              onClick={addCategory}
-              className="btn-dark"
-              style={{ width: "100px" }}
-            >
+            <Button onClick={addCategory} className="btn-dark" style={{ width: "100px" }}>
               Add
             </Button>
           </Col>
           <Col xs="12">
-            {category.length != 0 ? (
+            {category.length !== 0 ? (
               <Table striped hover size="lg" variant="dark">
                 <thead>
                   <tr>
@@ -76,7 +72,7 @@ export default function CategoryAdmin() {
                 </thead>
                 <tbody>
                   {category.map((item, index) => (
-                    <tr>
+                    <tr key={index}>
                       <td width="10%" className="align-middle">
                         {index + 1}
                       </td>
@@ -109,22 +105,14 @@ export default function CategoryAdmin() {
               </Table>
             ) : (
               <div className="text-center pt-5">
-                <img
-                  src={imgEmpty}
-                  className="img-fluid"
-                  style={{ width: "40%" }}
-                />
+                <img src={imgEmpty} className="img-fluid" style={{ width: "40%" }} alt="empty" />
                 <div className="mt-3">No data category</div>
               </div>
             )}
           </Col>
         </Row>
       </Container>
-      <DeleteData
-        setConfirmDelete={setConfirmDelete}
-        show={show}
-        handleClose={handleClose}
-      />
+      <DeleteData setConfirmDelete={setConfirmDelete} show={show} handleClose={handleClose} />
     </>
   );
 }

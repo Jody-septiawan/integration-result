@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import { UserContext } from "./context/userContext";
 
@@ -28,13 +28,13 @@ function App() {
 
   useEffect(() => {
     // Redirect Auth
-    if (state.isLogin == false) {
+    if (!state.isLogin) {
       history.push("/auth");
     } else {
-      if (state.user.status == "admin") {
+      if (state.user.status === "admin") {
         history.push("/add-category");
         // history.push("/complain-admin");
-      } else if (state.user.status == "customer") {
+      } else if (state.user.status === "customer") {
         history.push("/");
       }
     }

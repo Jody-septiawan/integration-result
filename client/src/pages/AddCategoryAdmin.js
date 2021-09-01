@@ -36,7 +36,7 @@ export default function AddCategoryAdmin() {
       const body = JSON.stringify({ name: category });
 
       // Insert category data
-      const response = await API.post("/category", body, config);
+      await API.post("/category", body, config);
 
       history.push("/category-admin");
     } catch (error) {
