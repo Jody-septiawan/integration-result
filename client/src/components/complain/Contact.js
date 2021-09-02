@@ -8,8 +8,9 @@ export default function Contact({ dataContact, setContact, contact }) {
 
   return (
     <>
-      {dataContact.map((item) => (
+      {dataContact.map((item, index) => (
         <div
+          key={index}
           className={`contact mt-3 px-2 ${contact?.id == item?.id && "contact-active"}`}
           onClick={() => {
             clickContact(item.id);
