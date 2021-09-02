@@ -59,7 +59,7 @@ export default function Product() {
               columnClassName="my-masonry-grid_column"
             >
               {products?.map((item, index) => (
-                <ProductCard item={item} index={index} />
+                <ProductCard item={item} key={index} />
               ))}
             </Masonry>
           ) : (

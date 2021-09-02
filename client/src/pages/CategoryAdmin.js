@@ -93,7 +93,7 @@ export default function CategoryAdmin() {
                 </thead>
                 <tbody>
                   {categories.map((item, index) => (
-                    <tr>
+                    <tr key={index}>
                       <td width="10%" className="align-middle">
                         {index + 1}
                       </td>
