@@ -10,9 +10,7 @@ export default function UpdateProductAdmin() {
   let history = useHistory();
   const { id } = useParams();
 
-  const [product, setProduct] = useState(
-    dataProduct.find((item) => item.id == id)
-  );
+  const [product, setProduct] = useState(dataProduct.find((item) => item.id == id));
   const [file, setFile] = useState(product.url);
 
   const title = "Product admin";
@@ -55,19 +53,15 @@ export default function UpdateProductAdmin() {
                       height: "100px",
                       objectFit: "cover",
                     }}
+                    alt="preview"
                   />
                 </div>
               )}
               <input type="file" id="upload" hidden onChange={handleFile} />
-              <label for="upload" className="label-file-add-product">
+              <label htmlFor="upload" className="label-file-add-product">
                 Upload file
               </label>
-              <input
-                value={product.name}
-                type="text"
-                placeholder="Product Name"
-                className="input-edit-category mt-4"
-              />
+              <input value={product.name} type="text" placeholder="Product Name" className="input-edit-category mt-4" />
               <textarea
                 value={product.desc}
                 placeholder="Product Desc"
@@ -80,12 +74,7 @@ export default function UpdateProductAdmin() {
                 placeholder="Price (Rp.)"
                 className="input-edit-category mt-4"
               />
-              <input
-                value={product.stock}
-                type="number"
-                placeholder="Stock"
-                className="input-edit-category mt-4"
-              />
+              <input value={product.stock} type="number" placeholder="Stock" className="input-edit-category mt-4" />
               <div className="d-grid gap-2 mt-4">
                 <Button type="submit" variant="success" size="md">
                   Add
